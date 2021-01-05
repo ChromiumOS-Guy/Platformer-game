@@ -27,7 +27,7 @@ var new_precent = 0
 var hss = false
 var nohp = false
 const MESSAGE_DIED: = "You died"
-
+var de125 = true
 var paused: = false setget set_paused
 
 
@@ -111,11 +111,7 @@ func _process(delta):
 		self.paused = true
 		pause_overlay.hide()
 		Qask.show()
-	if Database2.playerhp < 0 or Database2.playerhp == 0:
-		Database2.playerhp = 0
-		unpauseButton.hide()
-	else:
-		unpauseButton.show()
+	
 		
 		
 
