@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 24.8127
+height = 56.6346
+
+[node name="Bumper" type="Area2D"]
+collision_layer = 16
+__meta__ = {
+"_edit_vertical_guides_": [  ]
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -46.3567 )
+rotation = 1.57079
+shape = SubResource( 1 )
