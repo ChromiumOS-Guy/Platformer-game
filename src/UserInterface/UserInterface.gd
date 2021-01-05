@@ -131,7 +131,10 @@ func _on_MainMenuButton_pressed():
 
 
 func _on_Button_pressed():
-	if Database2.playerhp > 0:
+	if Database2.playerhp < 0 or Database2.playerhp == 0:
+		Database2.playerhp = 0
+		unpauseButton.hide()
+	if not Database2.playerhp > 0:
 		self.paused = false
 
 
