@@ -54,6 +54,7 @@ func _get_configuration_warning() -> String:
 func _on_Player_died() -> void:
 	self.paused = true
 	title_label.text = MESSAGE_DIED
+	unpauseButton.hide()
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -131,11 +132,7 @@ func _on_MainMenuButton_pressed():
 
 
 func _on_Button_pressed():
-	if Database2.playerhp < 0 or Database2.playerhp == 0:
-		Database2.playerhp = 0
-		unpauseButton.hide()
-	if not Database2.playerhp > 0:
-		self.paused = false
+	self.paused = false
 
 
 func _on_1_pressed():
