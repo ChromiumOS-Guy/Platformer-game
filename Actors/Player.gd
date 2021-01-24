@@ -69,7 +69,7 @@ func _physics_process(delta: float) -> void:
 	var snap: Vector2 = Vector2.DOWN * 60.0 if direction.y == 0.0 else Vector2.ZERO
 	if plat:
 		if not Input.is_action_just_pressed("jump") or not Database2.jump:
-			_velocity.x += (get_floor_velocity().x * delta)
+			_velocity.x += (get_floor_velocity().x * delta * 0.01)
 			gravity = 0
 		else:
 			gravity = 3500
