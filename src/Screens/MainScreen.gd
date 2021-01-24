@@ -1,5 +1,7 @@
 #author Alon Arvatz
 #Github https://github.com/alonarvatz/Platformer-game
+#author Alon Arvatz
+#Github https://github.com/alonarvatz/Platformer-game
 
 
 extends Control
@@ -12,7 +14,9 @@ var screen_size : Vector2 = Vector2()
 var new_precent = 0
 
 func _ready():
-	slide.value = Database2.Sound2
+	GameSaver.Load()
+	slide.value = Database2.Sound
+	print(Database2.Sound)
 	if load("res://src/Screens/ShopScreen.tscn"):
 		new_precent += loadprecent
 		LoadingScreen.update_precent(new_precent)
@@ -36,6 +40,8 @@ func _ready():
 
 func _on_VSlider_value_changed(value):
 	Database2.Sound = value
+	Database2.soundonplayer = value
+	print(Database2.Sound)
 
 # Gets the screen size to test in futur if its change since their
 
