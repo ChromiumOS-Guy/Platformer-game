@@ -1,4 +1,3 @@
-#author Alon Arvatz
 #Github https://github.com/alonarvatz/Platformer-game
 
 
@@ -7,6 +6,7 @@ extends Node
 
 var shit = 0 
 var Sound = 0
+var soundonplayer = 0
 var Shopfack = false
 var playerhp = 1
 var Bosshp = 80
