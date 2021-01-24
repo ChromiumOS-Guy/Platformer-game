@@ -11,7 +11,7 @@ func _on_button_up() -> void:
 	PlayerData.reset()
 	Database.load_game()
 	if Database2.waypoint == 0:
-		get_tree().change_scene("res://src/Screens/mainstory.tscn")
+		get_tree().change_scene("res://src/Levels/Level00.tscn")
 	if Database2.waypoint == 1:
 		get_tree().change_scene("res://src/Levels/Level01.tscn")
 	if Database2.waypoint == 2:
