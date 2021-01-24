@@ -12,7 +12,7 @@ var screen_size : Vector2 = Vector2()
 var new_precent = 0
 
 func _ready():
-	slide.value = Database2.Sound
+	slide.value = Database2.Sound2
 	if load("res://src/Screens/ShopScreen.tscn"):
 		new_precent += loadprecent
 		LoadingScreen.update_precent(new_precent)
