@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/waypoint.wav-977089dac561ef5d49e8da7210edc234.sample"
+
+[deps]
+
+source_file="res://assets/waypoint.wav"
+dest_files=[ "res://.import/waypoint.wav-977089dac561ef5d49e8da7210edc234.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

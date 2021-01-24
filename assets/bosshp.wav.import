@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/bosshp.wav-0c7b5007b84ec3f3f481f80800c6b6e6.sample"
+
+[deps]
+
+source_file="res://assets/bosshp.wav"
+dest_files=[ "res://.import/bosshp.wav-0c7b5007b84ec3f3f481f80800c6b6e6.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
