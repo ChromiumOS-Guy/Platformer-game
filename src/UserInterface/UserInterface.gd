@@ -132,6 +132,8 @@ func _on_mainmenumusic_finished():
 func _on_MainMenuButton_pressed():
 	Database2.Main = true
 	self.paused = false
+	Database.coin = 0
+	GameSaver.save()
 
 
 func _on_2_pressed():
