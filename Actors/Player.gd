@@ -19,6 +19,7 @@ var y = 0
 var x = 0
 var plat = false
 var coinfinshid = true
+var left = false
 func _ready():
 	coinplayer.volume_db = Database2.Sound
 	AudioStreamPlayerJump.volume_db = Database2.Sound
@@ -85,8 +86,10 @@ func _physics_process(delta: float) -> void:
 		AudioStreamPlayerJump.play()
 	if joystickLeft.output.x > 0 and joystickLeft.is_working and is_on_floor():
 		player_anim.play("run")
+		left = false
 	if joystickLeft.output.x < 0 and joystickLeft.is_working and is_on_floor():
 		player_anim.play("run2")
+		left = true
 	if Database2.jump and joystickLeft.output.x > 0:
 		player_anim.play("jump")
 	if Database2.jump and joystickLeft.output.x < 0:
@@ -94,14 +97,18 @@ func _physics_process(delta: float) -> void:
 	if Database2.coinfound == true:
 		Database2.coinfound = false
 		player_anim.play("findcoin")
-	if not joystickLeft.is_working and not Database2.jump and is_on_floor() and x > 0.5:
+	if not joystickLeft.is_working and left == false and not Database2.jump and is_on_floor() and x > 0.5:
 		x = 0
 		player_anim.play("idle")
+	if not joystickLeft.is_working and left == true and not Database2.jump and is_on_floor() and x > 0.5:
+		x = 0
+		player_anim.play("idle2")
 	if Database2.win == true:
 		player_anim.play("Win")
 		Database2.win = false
 	if Database2.Main == true:
 		Database2.Main = false
+		Database2.Sound = Database2.soundonplayer
 		get_tree().change_scene("res://src/Screens/MainScreen.tscn")
 	if Database2.pickedistrue:
 		Database2.pickedistrue = false
