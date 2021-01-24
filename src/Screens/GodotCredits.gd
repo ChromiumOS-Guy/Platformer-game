@@ -32,7 +32,11 @@ var credits = [
 	],[
 		"Programming:",
 		"",
-		"Alon-Arvatz"
+		"Alon-Arvatz",
+		"",
+		"Find me on github.com",
+		"",
+		"https://github.com/alonarvatz"
 	],[
 		"Art:",
 		"",
