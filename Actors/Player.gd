@@ -20,6 +20,9 @@ var x = 0
 var plat = false
 var coinfinshid = true
 func _ready():
+	coinplayer.volume_db = Database2.Sound
+	AudioStreamPlayerJump.volume_db = Database2.Sound
+	AudioStreamPlayerhp.volume_db = Database2.Sound
 	print("player spawnd success")
 
 func _on_StompDetector_area_entered(area: Area2D) -> void:
