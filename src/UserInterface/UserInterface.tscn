@@ -1,0 +1,332 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://assets/ui_theme.tres" type="Theme" id=1]
+[ext_resource path="res://src/UserInterface/UserInterface.gd" type="Script" id=2]
+[ext_resource path="res://src/UserInterface/Title.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/UserInterface/RetryButton.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/UserInterface/UI Player Health Bar.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/UserInterface/QuitButton.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/UserInterface/Low gravity Mode Butten.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/UserInterface/ColorRect.gd" type="Script" id=8]
+[ext_resource path="res://src/UserInterface/options.gd" type="Script" id=9]
+[ext_resource path="res://loading screen/Loading screen.tscn" type="PackedScene" id=10]
+[ext_resource path="res://assets/font_title.tres" type="DynamicFont" id=11]
+[ext_resource path="res://assets/game_Lose.wav" type="AudioStream" id=12]
+[ext_resource path="res://assets/lives.wav" type="AudioStream" id=13]
+[ext_resource path="res://assets/Enemy.wav" type="AudioStream" id=14]
+[ext_resource path="res://assets/maingamemusic.wav" type="AudioStream" id=15]
+[ext_resource path="res://Joystick/Joystick.tscn" type="PackedScene" id=16]
+[ext_resource path="res://assets/Pause-Button-Transparent.png" type="Texture" id=17]
+[ext_resource path="res://assets/Play.png" type="Texture" id=18]
+[ext_resource path="res://assets/font_default.tres" type="DynamicFont" id=19]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+[node name="UserInterface" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -2.28461
+margin_bottom = -2.28455
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="."]
+margin_right = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="Control"]
+position = Vector2( -0.146606, -19.1658 )
+scale = Vector2( 500, 35 )
+shape = SubResource( 1 )
+
+[node name="Joystick" parent="." instance=ExtResource( 16 )]
+margin_left = 0.572083
+margin_top = -396.301
+margin_right = 405.572
+margin_bottom = 7.69946
+
+[node name="Control3" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GridContainer" type="GridContainer" parent="Control3"]
+margin_top = 32.0
+margin_right = 363.0
+margin_bottom = 112.0
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="gravite" type="Label" parent="Control3/GridContainer"]
+margin_right = 363.0
+margin_bottom = 38.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+custom_fonts/font = ExtResource( 19 )
+text = "Low gravity Modes: %s"
+
+[node name="Score" type="Label" parent="Control3/GridContainer"]
+margin_top = 42.0
+margin_right = 363.0
+margin_bottom = 80.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+custom_fonts/font = ExtResource( 19 )
+text = "Score: %s"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HealthBar" parent="." instance=ExtResource( 5 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 371.0
+margin_bottom = 32.0001
+will_pulse = true
+
+[node name="button" type="Control" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -40.0
+margin_top = -40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="1" type="TouchScreenButton" parent="button"]
+position = Vector2( -219.53, -212 )
+scale = Vector2( 0.2867, 0.28 )
+normal = ExtResource( 17 )
+
+[node name="2" type="TouchScreenButton" parent="button"]
+visible = false
+position = Vector2( -219.53, -214.5 )
+scale = Vector2( 0.685839, 0.683277 )
+normal = ExtResource( 18 )
+
+[node name="lives" type="Control" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Lives" type="Label" parent="lives"]
+visible = false
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -683.0
+margin_bottom = 93.0
+custom_fonts/font = ExtResource( 11 )
+text = "Lives Befor Boss Reset: %s"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control2" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -20.0
+margin_right = 20.0
+margin_bottom = 20.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PauseOverlay" type="ColorRect" parent="Control2"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -20.0
+margin_right = 20.0
+margin_bottom = 20.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 0.321569 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Title" parent="Control2/PauseOverlay" instance=ExtResource( 3 )]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -79.0
+margin_top = -1030.0
+margin_right = 79.0
+margin_bottom = 308.0
+text = "Paused"
+
+[node name="PauseMenu" type="VBoxContainer" parent="Control2/PauseOverlay"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -281.5
+margin_top = -285.5
+margin_right = 281.5
+margin_bottom = 285.5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Retry" type="Button" parent="Control2/PauseOverlay/PauseMenu"]
+margin_right = 563.0
+margin_bottom = 136.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Retry Options"
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MainMenuButton" type="Button" parent="Control2/PauseOverlay/PauseMenu"]
+margin_top = 144.0
+margin_right = 563.0
+margin_bottom = 281.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Quit To Main Menu"
+
+[node name="QuitButton" parent="Control2/PauseOverlay/PauseMenu" instance=ExtResource( 6 )]
+visible = false
+margin_top = 434.0
+margin_right = 563.0
+margin_bottom = 571.0
+text = "Quit Game"
+
+[node name="moreoptions" type="ColorRect" parent="Control2"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -206.0
+margin_top = -183.5
+margin_right = 206.0
+margin_bottom = 183.5
+color = Color( 0, 0, 0, 0.321569 )
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control2/moreoptions"]
+margin_right = 412.0
+margin_bottom = 367.0
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Button" parent="Control2/moreoptions/VBoxContainer" instance=ExtResource( 7 )]
+margin_right = 412.0
+margin_bottom = 117.0
+text = "Use Gravity Mod after restart"
+
+[node name="RetryButton2" parent="Control2/moreoptions/VBoxContainer" instance=ExtResource( 4 )]
+margin_top = 125.0
+margin_right = 412.0
+margin_bottom = 242.0
+
+[node name="Button2" type="Button" parent="Control2/moreoptions/VBoxContainer"]
+margin_top = 250.0
+margin_right = 412.0
+margin_bottom = 367.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Exit Retry Options"
+
+[node name="Qask" type="ColorRect" parent="Control2"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -958.5
+margin_top = -539.5
+margin_right = 958.5
+margin_bottom = 539.5
+color = Color( 0, 0, 0, 0.305882 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Control2/Qask"]
+margin_left = 336.84
+margin_top = 150.0
+margin_right = 1581.84
+margin_bottom = 379.0
+custom_fonts/font = ExtResource( 11 )
+text = "The Boss Hited You 
+To NOT Die You Need To Answer A Random Question
+About Why kids & adults
+should Not do Drugs & Alcohol"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control2/Qask"]
+margin_left = 720.452
+margin_top = 590.0
+margin_right = 1085.45
+margin_bottom = 714.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="Control2/Qask/VBoxContainer"]
+margin_right = 364.0
+margin_bottom = 58.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Okay"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RetryButton3" parent="Control2/Qask/VBoxContainer" instance=ExtResource( 4 )]
+margin_top = 66.0
+margin_right = 364.0
+margin_bottom = 124.0
+
+[node name="LoadingScreen" parent="." instance=ExtResource( 10 )]
+
+[node name="mainmenumusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 15 )
+
+[node name="gameover" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+
+[node name="onelive" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 13 )
+
+[node name="Enemydie" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 14 )
+[connection signal="pressed" from="Control/TouchScreenButton" to="." method="_on_TouchScreenButton_pressed"]
+[connection signal="released" from="Control/TouchScreenButton" to="." method="_on_TouchScreenButton_released"]
+[connection signal="pressed" from="button/1" to="." method="_on_1_pressed"]
+[connection signal="pressed" from="button/2" to="." method="_on_2_pressed"]
+[connection signal="pressed" from="Control2/PauseOverlay/PauseMenu/Retry" to="Control2/PauseOverlay/PauseMenu/Retry" method="_on_Button2_pressed"]
+[connection signal="pressed" from="Control2/PauseOverlay/PauseMenu/MainMenuButton" to="." method="_on_MainMenuButton_pressed"]
+[connection signal="pressed" from="Control2/moreoptions/VBoxContainer/Button2" to="Control2/moreoptions" method="_on_Button2_pressed"]
+[connection signal="pressed" from="Control2/Qask/VBoxContainer/RetryButton3" to="Control2/Qask/VBoxContainer/RetryButton3" method="_on_RetryButton3_pressed"]
+[connection signal="finished" from="mainmenumusic" to="." method="_on_mainmenumusic_finished"]
