@@ -1,0 +1,97 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://assets/ui_theme.tres" type="Theme" id=1]
+[ext_resource path="res://src/Screens/EndScreenlose.gd" type="Script" id=2]
+[ext_resource path="res://assets/background1.png" type="Texture" id=3]
+[ext_resource path="res://src/UserInterface/Title.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/UserInterface/SceneChangeButton.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/playerswin.wav" type="AudioStream" id=6]
+
+[node name="EndScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control2" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Control2"]
+margin_right = 2920.0
+margin_bottom = 1642.0
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -20.0
+margin_right = 20.0
+margin_bottom = 20.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Menu" type="VBoxContainer" parent="Control"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -270.5
+margin_right = 270.5
+margin_bottom = 298.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CreditsButton" parent="Control/Menu" instance=ExtResource( 5 )]
+margin_right = 541.0
+margin_bottom = 145.0
+text = "Credits"
+next_scene_path = "res://src/Screens/GodotCredits.tscn"
+
+[node name="PlayButton" parent="Control/Menu" instance=ExtResource( 5 )]
+margin_top = 153.0
+margin_right = 541.0
+margin_bottom = 298.0
+text = "Go Back To Main Menu"
+next_scene_path = "res://src/Screens/MainScreen.tscn"
+
+[node name="Title" parent="Control" instance=ExtResource( 4 )]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -427.5
+margin_top = -353.0
+margin_right = 427.5
+margin_bottom = 0.0
+text = "Congratulations you finished the game!"
+
+[node name="Result" type="Label" parent="Control"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -284.0
+margin_top = -170.0
+margin_right = 284.0
+text = "You Earned %s coins and you died %s times!"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Winsound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )

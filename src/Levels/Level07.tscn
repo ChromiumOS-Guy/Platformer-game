@@ -1,0 +1,1096 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://src/UserInterface/UserInterface.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/Objects/spike.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Actors/Enemy.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Actors/Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/Screens/EndScreen.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/Objects/Coin.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/backgroung.png" type="Texture" id=7]
+[ext_resource path="res://assets/tileset.tres" type="TileSet" id=8]
+[ext_resource path="res://src/Objects/invBumper.tscn" type="PackedScene" id=11]
+[ext_resource path="res://src/Objects/moving platform.tscn" type="PackedScene" id=12]
+[ext_resource path="res://src/Objects/Portal2D.tscn" type="PackedScene" id=13]
+[ext_resource path="res://src/Objects/HP.tscn" type="PackedScene" id=14]
+
+[node name="Level07" type="Node2D"]
+
+[node name="BackgroundLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="TextureRect" type="TextureRect" parent="BackgroundLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 7 )
+expand = true
+stretch_mode = 2
+
+[node name="InterfaceLayer" type="CanvasLayer" parent="."]
+
+[node name="UserInterface" parent="InterfaceLayer" instance=ExtResource( 1 )]
+Load_scene_path = "res://src/Levels/Level07.tscn"
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 8 )
+cell_size = Vector2( 80, 80 )
+collision_layer = 4
+collision_mask = 0
+format = 1
+tile_data = PoolIntArray( -1048419, -1610612736, 0, -1048416, -1610612736, 0, -1048408, -1610612736, 0, -1048400, -1610612736, 0, -1048392, -1610612736, 0, -1048384, -1610612736, 0, -1048376, -1610612736, 0, -1048368, -1610612736, 0, -1048367, -1610612733, 0, -982883, -1610612736, 0, -982880, -1610612736, 0, -982832, -1610612736, 0, -917347, -1610612736, 0, -917344, -1610612736, 0, -917296, -1610612736, 0, -917295, -1610612736, 0, -917294, -1610612733, 0, -851811, -1610612736, 0, -851808, -1610612736, 0, -851760, -1610612736, 0, -851759, -1610612736, 0, -786275, -1610612736, 0, -786272, -1610612736, 0, -786224, -1610612736, 0, -786223, -1610612736, 0, -786222, -1610612736, 0, -786221, -1610612733, 0, -720812, 1, 0, -720811, 1, 0, -720810, 1, 0, -720739, -1610612736, 0, -720736, -1610612736, 0, -720688, -1610612736, 0, -720687, -1610612736, 0, -720686, -1610612736, 0, -720683, -1610612736, 0, -720682, -1610612736, 0, -655265, 0, 0, -655257, 0, 0, -655256, -1610612733, 0, -655203, -1610612736, 0, -655200, -1610612736, 0, -589729, 0, 0, -589721, 0, 0, -589667, -1610612736, 0, -589664, -1610612736, 0, -524204, 1, 0, -524203, 1, 0, -524202, 1, 0, -524195, -1610612736, 0, -524194, -1610612736, 0, -524193, -1610612736, 0, -524185, 0, 0, -524184, -1610612736, 0, -524183, -1610612733, 0, -524131, -1610612736, 0, -524128, -1610612736, 0, -458657, -1610612736, 0, -458649, 0, 0, -458648, -1610612736, 0, -458595, -1610612736, 0, -458592, -1610612736, 0, -393121, -1610612736, 0, -393120, 0, 0, -393119, 0, 0, -393118, 0, 0, -393117, 0, 0, -393116, 0, 0, -393115, 0, 0, -393114, 0, 0, -393113, 0, 0, -393112, -1610612736, 0, -393111, -1610612736, 0, -393110, -1610612733, 0, -393059, -1610612736, 0, -393056, -1610612736, 0, -327596, 1, 0, -327595, 1, 0, -327594, 1, 0, -327585, -1610612736, 0, -327523, -1610612736, 0, -327520, -1610612736, 0, -262049, 1, 0, -262038, -1610612736, 0, -262037, -1610612733, 0, -261987, -1610612736, 0, -261984, -1610612736, 0, -196519, -1610612736, 0, -196518, -1610612736, 0, -196517, -1610612736, 0, -196516, -1610612736, 0, -196513, 1, 0, -196502, -1610612736, 0, -196451, -1610612736, 0, -196448, -1610612736, 0, -65537, -1610612736, 0, -131072, -1610612736, 0, -131071, -1610612736, 0, -131070, -1610612736, 0, -131069, -1610612736, 0, -131068, -1610612736, 0, -131067, -1610612736, 0, -131066, -1610612736, 0, -131065, -1610612736, 0, -131064, -1610612736, 0, -131063, -1610612736, 0, -131062, -1610612736, 0, -131061, -1610612736, 0, -131060, -1610612736, 0, -131059, -1610612736, 0, -131058, -1610612736, 0, -131057, -1610612736, 0, -131056, -1610612736, 0, -131055, -1610612736, 0, -131054, -1610612736, 0, -131053, -1610612736, 0, -131052, -1610612736, 0, -131051, -1610612736, 0, -131050, -1610612736, 0, -131049, -1610612736, 0, -131048, -1610612736, 0, -130980, -1610612736, 0, -130977, 1, 0, -130966, -1610612736, 0, -130965, -1610612736, 0, -130964, -1610612733, 0, -130915, -1610612736, 0, -130912, -1610612736, 0, -1, -1610612736, 0, -65512, -1610612736, 0, -65444, -1610612736, 0, -65441, -1610612736, 0, -65430, -1610612736, 0, -65429, -1610612736, 0, -65379, -1610612736, 0, -65376, -1610612736, 0, 65535, 0, 0, 24, -1610612736, 0, 89, -1610612736, 0, 92, -1610612736, 0, 95, -1610612736, 0, 106, -1610612736, 0, 107, -1610612736, 0, 108, -1610612736, 0, 109, -1610612733, 0, 157, -1610612736, 0, 160, -1610612736, 0, 249, 0, 0, 250, 0, 0, 131071, 0, 0, 65560, -1610612736, 0, 65620, -1610612736, 0, 65621, -1610612736, 0, 65625, -1610612736, 0, 65628, -1610612736, 0, 65631, -1610612736, 0, 65632, -1610612736, 0, 65633, -1610612736, 0, 65634, -1610612736, 0, 65635, -1610612736, 0, 65636, -1610612736, 0, 65637, -1610612736, 0, 65638, -1610612736, 0, 65639, -1610612736, 0, 65640, -1610612736, 0, 65641, -1610612736, 0, 65642, -1610612736, 0, 65643, -1610612736, 0, 65644, -1610612736, 0, 65693, -1610612736, 0, 65696, -1610612736, 0, 65785, 0, 0, 65786, 0, 0, 196607, 0, 0, 131096, -1610612736, 0, 131151, -1610612736, 0, 131152, -1610612736, 0, 131161, -1610612736, 0, 131164, -1610612736, 0, 131167, -1610612736, 0, 131229, -1610612736, 0, 131232, -1610612736, 0, 131321, 0, 0, 131322, 0, 0, 262143, 0, 0, 196632, -1610612736, 0, 196682, -1610612736, 0, 196683, -1610612736, 0, 196697, -1610612736, 0, 196703, -1610612736, 0, 196765, -1610612736, 0, 196768, -1610612736, 0, 196857, 0, 0, 196858, 0, 0, 327679, 0, 0, 262213, -1610612736, 0, 262214, -1610612736, 0, 262233, -1610612736, 0, 262239, -1610612736, 0, 262301, -1610612736, 0, 262304, -1610612736, 0, 262393, 0, 0, 262394, 0, 0, 393215, 0, 0, 327744, -1610612736, 0, 327745, -1610612736, 0, 327769, -1610612736, 0, 327775, -1610612736, 0, 327792, 0, 0, 327793, 0, 0, 327804, 0, 0, 327805, 0, 0, 327813, 0, 0, 327821, 0, 0, 327822, -1610612733, 0, 327837, -1610612736, 0, 327840, -1610612736, 0, 327929, 0, 0, 327930, 0, 0, 458751, 0, 0, 393216, 0, 0, 393217, 1, 0, 393218, 1, 0, 393219, 0, 0, 393220, 0, 0, 393228, 0, 0, 393238, 1, 0, 393239, -1610612734, 0, 393275, -1610612736, 0, 393276, -1610612736, 0, 393305, -1610612736, 0, 393308, -1610612736, 0, 393309, -1610612736, 0, 393310, -1610612736, 0, 393311, -1610612736, 0, 393373, -1610612736, 0, 393376, -1610612736, 0, 393465, 0, 0, 393466, 0, 0, 524287, 0, 0, 458752, 0, 0, 458753, 1, 0, 458754, 1, 0, 458755, 0, 0, 458756, 0, 0, 458775, -1073741822, 0, 458776, -1610612736, 0, 458777, 0, 0, 458778, -1610612734, 0, 458806, -1610612736, 0, 458807, -1610612736, 0, 458841, -1610612736, 0, 458844, -1610612736, 0, 458894, -1610612736, 0, 458895, -1610612733, 0, 458909, -1610612736, 0, 458912, -1610612736, 0, 458973, -1610612735, 0, 458974, -1610612736, 0, 458975, -1610612736, 0, 458976, -1610612736, 0, 458977, -1610612736, 0, 458978, -1610612736, 0, 458979, -1610612736, 0, 458980, -1610612736, 0, 458981, -1610612736, 0, 458982, -1610612736, 0, 458983, -1610612736, 0, 458984, -1610612736, 0, 458985, -1610612736, 0, 458986, -1610612736, 0, 459001, 0, 0, 459002, 0, 0, 589823, 0, 0, 524288, 0, 0, 524289, 1, 0, 524290, 1, 0, 524291, 0, 0, 524292, 0, 0, 524312, -1610612736, 0, 524313, -1610612736, 0, 524314, -1610612736, 0, 524315, -1610612734, 0, 524337, -1610612736, 0, 524338, -1610612736, 0, 524377, -1610612736, 0, 524380, -1610612736, 0, 524430, -1610612736, 0, 524445, -1610612736, 0, 524448, -1610612736, 0, 524532, 2, 0, 524533, 0, 0, 524534, 0, 0, 524535, 0, 0, 524536, 0, 0, 524537, 0, 0, 524538, 0, 0, 655359, 0, 0, 589824, 0, 0, 589825, 1, 0, 589826, 1, 0, 589827, 1, 0, 589828, 1, 0, 589848, 1, 0, 589849, 1, 0, 589850, 1, 0, 589851, 1, 0, 589852, 1, 0, 589853, 1, 0, 589854, -1610612734, 0, 589868, -1610612736, 0, 589869, -1610612736, 0, 589913, -1610612736, 0, 589916, -1610612736, 0, 589966, -1610612736, 0, 589967, -1610612736, 0, 589968, -1610612733, 0, 589981, -1610612736, 0, 589984, -1610612736, 0, 590067, 2, 0, 590068, 0, 0, 590069, 0, 0, 590070, 0, 0, 590071, 0, 0, 590072, 0, 0, 590073, 0, 0, 590074, 0, 0, 720895, 0, 0, 655360, 0, 0, 655361, 1, 0, 655362, 1, 0, 655363, 1, 0, 655364, 1, 0, 655384, 1, 0, 655385, 1, 0, 655386, 1, 0, 655387, 1, 0, 655388, 1, 0, 655389, 1, 0, 655390, -1610612736, 0, 655391, -1610612734, 0, 655399, -1610612736, 0, 655400, -1610612736, 0, 655449, -1610612736, 0, 655452, -1610612736, 0, 655502, -1610612736, 0, 655503, -1610612736, 0, 655520, -1610612736, 0, 655602, 2, 0, 655603, 0, 0, 655604, 0, 0, 655605, 0, 0, 655606, 0, 0, 655607, 0, 0, 655608, 0, 0, 655609, 0, 0, 655610, 0, 0, 786431, 0, 0, 720896, 0, 0, 720897, 0, 0, 720898, 0, 0, 720899, 0, 0, 720900, 0, 0, 720920, 0, 0, 720921, -1610612736, 0, 720922, -1610612736, 0, 720923, -1610612736, 0, 720924, -1610612736, 0, 720925, -1610612736, 0, 720926, -1610612736, 0, 720927, -1610612736, 0, 720928, -1610612734, 0, 720935, -1610612736, 0, 720936, -1610612736, 0, 720985, -1610612736, 0, 720988, -1610612736, 0, 721009, -1073741823, 0, 721010, -1073741823, 0, 721011, -1073741823, 0, 721012, -1073741823, 0, 721013, -1073741823, 0, 721014, -1073741823, 0, 721015, -1073741823, 0, 721016, -1073741823, 0, 721017, -1073741823, 0, 721018, -1073741823, 0, 721019, -1073741823, 0, 721020, -1073741823, 0, 721038, -1610612736, 0, 721039, -1610612736, 0, 721040, -1610612736, 0, 721041, -1610612733, 0, 721056, -1610612736, 0, 721110, -1610612735, 0, 721111, -1610612735, 0, 721112, -1610612735, 0, 721113, -1610612735, 0, 721114, -1610612735, 0, 721115, -1610612735, 0, 721116, -1610612735, 0, 721137, 2, 0, 721138, 0, 0, 721139, 0, 0, 721140, 0, 0, 721141, 0, 0, 721142, 0, 0, 721143, 0, 0, 721144, 0, 0, 721145, 0, 0, 721146, 0, 0, 851967, 0, 0, 786432, 0, 0, 786433, 0, 0, 786434, 0, 0, 786435, 0, 0, 786436, 0, 0, 786437, 0, 0, 786438, 0, 0, 786439, 0, 0, 786440, 0, 0, 786441, 0, 0, 786442, 0, 0, 786443, 0, 0, 786444, 0, 0, 786445, 0, 0, 786446, -1610612736, 0, 786447, -1610612736, 0, 786448, 0, 0, 786449, 0, 0, 786450, 0, 0, 786451, 0, 0, 786452, 0, 0, 786453, 0, 0, 786454, 0, 0, 786455, 0, 0, 786456, 0, 0, 786457, -1610612736, 0, 786458, 0, 0, 786459, 0, 0, 786460, 0, 0, 786461, 0, 0, 786462, 0, 0, 786463, 0, 0, 786464, 0, 0, 786465, 0, 0, 786466, 0, 0, 786467, 0, 0, 786468, 0, 0, 786469, 0, 0, 786470, 0, 0, 786471, 0, 0, 786472, 0, 0, 786473, 0, 0, 786474, 0, 0, 786475, 0, 0, 786476, 0, 0, 786477, 0, 0, 786478, 0, 0, 786479, 0, 0, 786480, 0, 0, 786481, 0, 0, 786482, 0, 0, 786483, 0, 0, 786484, 0, 0, 786485, 0, 0, 786486, 0, 0, 786487, 0, 0, 786488, 0, 0, 786489, 0, 0, 786490, 0, 0, 786491, 0, 0, 786492, 0, 0, 786493, 0, 0, 786494, 0, 0, 786495, 0, 0, 786496, 0, 0, 786497, 0, 0, 786498, 0, 0, 786499, 0, 0, 786500, 0, 0, 786501, 0, 0, 786502, 0, 0, 786503, 0, 0, 786504, 0, 0, 786505, 0, 0, 786506, 0, 0, 786507, 0, 0, 786508, 0, 0, 786509, 0, 0, 786510, 0, 0, 786511, 0, 0, 786512, 0, 0, 786513, 0, 0, 786514, 0, 0, 786515, 0, 0, 786516, 0, 0, 786517, 0, 0, 786518, 0, 0, 786519, 0, 0, 786520, 0, 0, 786521, 0, 0, 786522, 0, 0, 786523, 0, 0, 786524, 0, 0, 786525, 0, 0, 786526, 0, 0, 786527, 0, 0, 786528, 0, 0, 786529, 0, 0, 786530, 0, 0, 786531, 0, 0, 786532, 0, 0, 786533, 0, 0, 786534, 0, 0, 786535, 0, 0, 786536, 0, 0, 786537, 0, 0, 786538, 0, 0, 786539, 0, 0, 786540, 0, 0, 786541, 0, 0, 786542, 0, 0, 786543, 0, 0, 786544, 0, 0, 786545, 0, 0, 786546, 0, 0, 786547, 0, 0, 786548, 0, 0, 786549, 0, 0, 786550, 0, 0, 786551, 0, 0, 786552, 0, 0, 786553, 0, 0, 786554, 0, 0, 786555, 0, 0, 786556, 0, 0, 786557, 0, 0, 786558, 0, 0, 786559, 0, 0, 786560, 0, 0, 786561, 0, 0, 786562, 0, 0, 786563, 0, 0, 786564, 0, 0, 786565, 0, 0, 786566, 0, 0, 786567, 0, 0, 786568, 0, 0, 786569, 0, 0, 786570, 0, 0, 786571, 0, 0, 786572, 0, 0, 786573, 0, 0, 786574, 0, 0, 786575, 0, 0, 786576, 0, 0, 786577, 0, 0, 786578, 0, 0, 786579, 0, 0, 786580, 0, 0, 786581, 0, 0, 786582, 0, 0, 786583, 0, 0, 786584, 0, 0, 786585, 0, 0, 786586, 0, 0, 786587, 0, 0, 786588, 0, 0, 786589, 0, 0, 786590, 0, 0, 786591, 0, 0, 786592, -1610612736, 0, 786593, 0, 0, 786594, 0, 0, 786595, 0, 0, 786596, 0, 0, 786597, 0, 0, 786598, 0, 0, 786599, 0, 0, 786600, 0, 0, 786601, 0, 0, 786602, 0, 0, 786603, 0, 0, 786604, 0, 0, 786605, 0, 0, 786606, 0, 0, 786607, 0, 0, 786608, 0, 0, 786609, 0, 0, 786610, 0, 0, 786611, 0, 0, 786612, 0, 0, 786613, 0, 0, 786614, 0, 0, 786615, 0, 0, 786616, 0, 0, 786617, 0, 0, 786618, 0, 0, 786619, 0, 0, 786620, 0, 0, 786621, 0, 0, 786622, 0, 0, 786623, 0, 0, 786624, 0, 0, 786625, 0, 0, 786626, 0, 0, 786627, 0, 0, 786628, 0, 0, 786629, 0, 0, 786630, 0, 0, 786631, 0, 0, 786632, 0, 0, 786633, 0, 0, 786634, 0, 0, 786635, 0, 0, 786636, 0, 0, 786637, 0, 0, 786638, 0, 0, 786639, 0, 0, 786640, 0, 0, 786641, 0, 0, 786642, 0, 0, 786643, 0, 0, 786644, 0, 0, 786645, 0, 0, 786646, 0, 0, 786647, 0, 0, 786648, 0, 0, 786649, 0, 0, 786650, 0, 0, 786651, 0, 0, 786652, 0, 0, 786653, 0, 0, 786654, 0, 0, 786655, 0, 0, 786656, 0, 0, 786657, 0, 0, 786658, 0, 0, 786659, 0, 0, 786660, 0, 0, 786661, 0, 0, 786662, 0, 0, 786663, 0, 0, 786664, 0, 0, 786665, 0, 0, 786666, 0, 0, 786667, 0, 0, 786668, 0, 0, 786669, 0, 0, 786670, 0, 0, 786671, 0, 0, 786672, 0, 0, 786673, 0, 0, 786674, 0, 0, 786675, 0, 0, 786676, 0, 0, 786677, 0, 0, 786678, 0, 0, 786679, 0, 0, 786680, 0, 0, 786681, 0, 0, 786682, 0, 0, 917503, 0, 0, 851968, 0, 0, 851969, 0, 0, 851970, 0, 0, 851971, 0, 0, 851972, 0, 0, 851973, 0, 0, 851974, 0, 0, 851975, 0, 0, 851976, 0, 0, 851977, 0, 0, 851978, 0, 0, 851979, 0, 0, 851980, 0, 0, 851981, 0, 0, 851982, 0, 0, 851983, 0, 0, 851984, 0, 0, 851985, 0, 0, 851986, 0, 0, 851987, 0, 0, 851988, 0, 0, 851989, 0, 0, 851990, 0, 0, 851991, 0, 0, 851992, 0, 0, 851993, 0, 0, 851994, 0, 0, 851995, 0, 0, 851996, 0, 0, 851997, 0, 0, 851998, 0, 0, 851999, 0, 0, 852000, 0, 0, 852001, 0, 0, 852002, 0, 0, 852003, 0, 0, 852004, 0, 0, 852005, 0, 0, 852006, 0, 0, 852007, 0, 0, 852008, 0, 0, 852009, 0, 0, 852010, 0, 0, 852011, 0, 0, 852012, 0, 0, 852013, 0, 0, 852014, 0, 0, 852015, 0, 0, 852016, 0, 0, 852017, 0, 0, 852018, 0, 0, 852019, 0, 0, 852020, 0, 0, 852021, 0, 0, 852022, 0, 0, 852023, 0, 0, 852024, 0, 0, 852025, 0, 0, 852026, 0, 0, 852027, 0, 0, 852028, 0, 0, 852029, 0, 0, 852030, 0, 0, 852031, 0, 0, 852032, 0, 0, 852033, 0, 0, 852034, 0, 0, 852035, 0, 0, 852036, 0, 0, 852037, 0, 0, 852038, 0, 0, 852039, 0, 0, 852040, 0, 0, 852041, 0, 0, 852042, 0, 0, 852043, 0, 0, 852044, 0, 0, 852045, 0, 0, 852046, 0, 0, 852047, 0, 0, 852048, 0, 0, 852049, 0, 0, 852050, 0, 0, 852051, 0, 0, 852052, 0, 0, 852053, 0, 0, 852054, 0, 0, 852055, 0, 0, 852056, 0, 0, 852057, 0, 0, 852058, 0, 0, 852059, 0, 0, 852060, 0, 0, 852061, 0, 0, 852062, 0, 0, 852063, 0, 0, 852064, 0, 0, 852065, 0, 0, 852066, 0, 0, 852067, 0, 0, 852068, 0, 0, 852069, 0, 0, 852070, 0, 0, 852071, 0, 0, 852072, 0, 0, 852073, 0, 0, 852074, 0, 0, 852075, 0, 0, 852076, 0, 0, 852077, 0, 0, 852078, 0, 0, 852079, 0, 0, 852080, 0, 0, 852081, 0, 0, 852082, 0, 0, 852083, 0, 0, 852084, 0, 0, 852085, 0, 0, 852086, 0, 0, 852087, 0, 0, 852088, 0, 0, 852089, 0, 0, 852090, 0, 0, 852091, 0, 0, 852092, 0, 0, 852093, 0, 0, 852094, 0, 0, 852095, 0, 0, 852096, 0, 0, 852097, 0, 0, 852098, 0, 0, 852099, 0, 0, 852100, 0, 0, 852101, 0, 0, 852102, 0, 0, 852103, 0, 0, 852104, 0, 0, 852105, 0, 0, 852106, 0, 0, 852107, 0, 0, 852108, 0, 0, 852109, 0, 0, 852110, 0, 0, 852111, 0, 0, 852112, 0, 0, 852113, 0, 0, 852114, 0, 0, 852115, 0, 0, 852116, 0, 0, 852117, 0, 0, 852118, 0, 0, 852119, 0, 0, 852120, 0, 0, 852121, 0, 0, 852122, 0, 0, 852123, 0, 0, 852124, 0, 0, 852125, 0, 0, 852126, 0, 0, 852127, 0, 0, 852128, 0, 0, 852129, 0, 0, 852130, 0, 0, 852131, 0, 0, 852132, 0, 0, 852133, 0, 0, 852134, 0, 0, 852135, 0, 0, 852136, 0, 0, 852137, 0, 0, 852138, 0, 0, 852139, 0, 0, 852140, 0, 0, 852141, 0, 0, 852142, 0, 0, 852143, 0, 0, 852144, 0, 0, 852145, 0, 0, 852146, 0, 0, 852147, 0, 0, 852148, 0, 0, 852149, 0, 0, 852150, 0, 0, 852151, 0, 0, 852152, 0, 0, 852153, 0, 0, 852154, 0, 0, 852155, 0, 0, 852156, 0, 0, 852157, 0, 0, 852158, 0, 0, 852159, 0, 0, 852160, 0, 0, 852161, 0, 0, 852162, 0, 0, 852163, 0, 0, 852164, 0, 0, 852165, 0, 0, 852166, 0, 0, 852167, 0, 0, 852168, 0, 0, 852169, 0, 0, 852170, 0, 0, 852171, 0, 0, 852172, 0, 0, 852173, 0, 0, 852174, 0, 0, 852175, 0, 0, 852176, 0, 0, 852177, 0, 0, 852178, 0, 0, 852179, 0, 0, 852180, 0, 0, 852181, 0, 0, 852182, 0, 0, 852183, 0, 0, 852184, 0, 0, 852185, 0, 0, 852186, 0, 0, 852187, 0, 0, 852188, 0, 0, 852189, 0, 0, 852190, 0, 0, 852191, 0, 0, 852192, 0, 0, 852193, 0, 0, 852194, 0, 0, 852195, 0, 0, 852196, 0, 0, 852197, 0, 0, 852198, 0, 0, 852199, 0, 0, 852200, 0, 0, 852201, 0, 0, 852202, 0, 0, 852203, 0, 0, 852204, 0, 0, 852205, 0, 0, 852206, 0, 0, 852207, 0, 0, 852208, 0, 0, 852209, 0, 0, 852210, 0, 0, 852211, 0, 0, 852212, 0, 0, 852213, 0, 0, 852214, 0, 0, 852215, 0, 0, 852216, 0, 0, 852217, 0, 0, 852218, 0, 0 )
+
+[node name="Portal2D" parent="." instance=ExtResource( 13 )]
+position = Vector2( 19797.6, 632.04 )
+next_scene = ExtResource( 5 )
+levelwaypoint = 8
+
+[node name="Player" parent="." instance=ExtResource( 4 )]
+position = Vector2( 109.506, 465.198 )
+joystickLeftPath = NodePath("../InterfaceLayer/UserInterface/Joystick")
+
+[node name="Camera2D" parent="Player" index="0"]
+limit_right = 20000
+
+[node name="coins" type="Node2D" parent="."]
+
+[node name="Coin" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 999.435, 427.22 )
+
+[node name="Coin2" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 1874.96, 907.634 )
+
+[node name="Coin3" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 1977.8, 506.772 )
+
+[node name="Coin4" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 2312.94, 673.081 )
+
+[node name="Coin5" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 2713.59, 907.427 )
+
+[node name="Coin6" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 2832.02, 904.907 )
+
+[node name="Coin7" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 2988.25, 902.387 )
+
+[node name="Coin8" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 3192.36, 733.558 )
+
+[node name="Coin9" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 3598.06, 652.923 )
+
+[node name="Coin10" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 4003.75, 587.407 )
+
+[node name="Coin15" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 5991.91, 186.752 )
+
+[node name="Coin16" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 6397.6, 111.157 )
+
+[node name="Coin17" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 6793.22, 33.0414 )
+
+[node name="Coin18" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 7161.11, -77.8316 )
+
+[node name="Coin19" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 7271.99, 131.315 )
+
+[node name="Coin20" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 7274.51, 244.708 )
+
+[node name="Coin21" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 7274.51, 373.22 )
+
+[node name="Coin22" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 7282.07, 501.732 )
+
+[node name="Coin23" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 7282.07, 615.125 )
+
+[node name="Coin24" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 7292.15, 738.597 )
+
+[node name="Coin25" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 7294.67, 839.391 )
+
+[node name="Coin26" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 7493.57, -293.164 )
+
+[node name="Coin27" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 7496.09, -179.771 )
+
+[node name="Coin28" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 7496.09, -51.2589 )
+
+[node name="Coin29" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 7503.65, 77.2531 )
+
+[node name="Coin30" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 7503.65, 190.646 )
+
+[node name="Coin31" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 7513.73, 314.118 )
+
+[node name="Coin32" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 7516.25, 414.912 )
+
+[node name="Coin33" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 6834.42, -690.234 )
+
+[node name="Coin34" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 6834.42, -935.957 )
+
+[node name="Coin35" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 7643.5, -861.041 )
+
+[node name="Coin36" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 8389.66, -780.133 )
+
+[node name="Coin37" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 8440.6, -690.234 )
+
+[node name="Coin38" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 8488.55, -591.346 )
+
+[node name="Coin39" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 8539.92, -491.594 )
+
+[node name="Coin40" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 8603.83, -382.278 )
+
+[node name="Coin41" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 8664.38, -276.325 )
+
+[node name="Coin42" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 8718.2, -172.054 )
+
+[node name="Coin43" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 8768.65, -64.4191 )
+
+[node name="Coin44" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 8814.06, 43.2157 )
+
+[node name="Coin45" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 9045.79, 346.327 )
+
+[node name="Coin46" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 9993.53, 354.336 )
+
+[node name="Coin47" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 10686.3, 348.101 )
+
+[node name="Coin48" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 11419.3, 409.836 )
+
+[node name="Coin49" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 11469.8, 508.613 )
+
+[node name="Coin50" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 11529.3, 620.859 )
+
+[node name="Coin51" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 11583.1, 723.003 )
+
+[node name="Coin52" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 11638.1, 837.494 )
+
+[node name="Coin53" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 11726.8, 917.189 )
+
+[node name="Coin54" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 11858.1, 916.067 )
+
+[node name="Coin55" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 12002.9, 919.434 )
+
+[node name="Coin56" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 12697.7, 158.168 )
+
+[node name="Coin57" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 12700.2, 271.56 )
+
+[node name="Coin58" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 12700.2, 400.072 )
+
+[node name="Coin59" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 12707.7, 528.584 )
+
+[node name="Coin60" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 12707.7, 641.977 )
+
+[node name="Coin61" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 12717.8, 765.45 )
+
+[node name="Coin62" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 12679.8, -590.187 )
+
+[node name="Coin63" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 12682.4, -476.794 )
+
+[node name="Coin64" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 12682.4, -348.282 )
+
+[node name="Coin65" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 12689.9, -219.77 )
+
+[node name="Coin66" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 12689.9, -106.378 )
+
+[node name="Coin67" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 12700, 17.0947 )
+
+[node name="Coin68" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 12690.5, -1292.22 )
+
+[node name="Coin69" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 12693, -1178.82 )
+
+[node name="Coin70" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 12693, -1050.31 )
+
+[node name="Coin71" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 12700.6, -921.799 )
+
+[node name="Coin72" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 12700.6, -808.406 )
+
+[node name="Coin73" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 12710.7, -684.933 )
+
+[node name="Coin75" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 12849.6, -1329.63 )
+
+[node name="Coin80" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 16679.5, -1322.9 )
+
+[node name="Coin81" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 16780.5, -1271.26 )
+
+[node name="Coin82" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 16832.1, -1181.47 )
+
+[node name="Coin83" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 16881.5, -1082.69 )
+
+[node name="Coin84" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 16912.9, -1004.12 )
+
+[node name="Coin85" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 17148.7, -930.034 )
+
+[node name="Coin86" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 17798.7, 503.68 )
+
+[node name="Coin87" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 17897.7, 509.337 )
+
+[node name="Coin88" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 18019.4, 506.508 )
+
+[node name="Coin89" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 18121.2, 509.337 )
+
+[node name="Coin90" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 18231.5, 503.68 )
+
+[node name="Coin91" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 18353.1, 506.508 )
+
+[node name="Coin92" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 18483.2, 506.508 )
+
+[node name="Coin93" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 18607.7, 509.337 )
+
+[node name="Coin94" parent="coins" instance=ExtResource( 6 )]
+position = Vector2( 18732.1, 509.337 )
+
+[node name="Enemys" type="Node2D" parent="."]
+
+[node name="Enemy" parent="Enemys" instance=ExtResource( 3 )]
+position = Vector2( 505.289, 953.6 )
+
+[node name="Enemy2" parent="Enemys" instance=ExtResource( 3 )]
+position = Vector2( 1754.04, 956.429 )
+
+[node name="HPs" type="Node2D" parent="."]
+
+[node name="HP" parent="HPs" instance=ExtResource( 14 )]
+position = Vector2( 1799.68, 413.543 )
+
+[node name="HP2" parent="HPs" instance=ExtResource( 14 )]
+position = Vector2( 6827.77, -450.419 )
+
+[node name="HP3" parent="HPs" instance=ExtResource( 14 )]
+position = Vector2( 8049.39, -36.6891 )
+
+[node name="HP4" parent="HPs" instance=ExtResource( 14 )]
+position = Vector2( 17047.6, -941.259 )
+
+[node name="HP5" parent="HPs" instance=ExtResource( 14 )]
+position = Vector2( 17716.9, 507.669 )
+
+[node name="HP6" parent="HPs" instance=ExtResource( 14 )]
+position = Vector2( 17384.2, 696.253 )
+
+[node name="HP7" parent="HPs" instance=ExtResource( 14 )]
+position = Vector2( 19420.5, 735.867 )
+
+[node name="Bumpers" type="Node2D" parent="."]
+
+[node name="spike" type="Node2D" parent="."]
+
+[node name="spike37" type="Node2D" parent="spike"]
+
+[node name="spike2" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 813.056, 920.833 )
+
+[node name="spike3" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 876.052, 921.148 )
+
+[node name="spike4" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 939.363, 921.148 )
+
+[node name="spike5" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 1002.36, 921.148 )
+
+[node name="spike6" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 1065.04, 920.833 )
+
+[node name="spike7" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 1127.72, 921.148 )
+
+[node name="spike8" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 1190.72, 920.833 )
+
+[node name="spike9" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 1253.08, 920.833 )
+
+[node name="spike10" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 1315.13, 920.833 )
+
+[node name="spike11" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 1377.19, 920.833 )
+
+[node name="spike12" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 1440.5, 920.833 )
+
+[node name="spike13" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 1503.49, 920.833 )
+
+[node name="spike14" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 1566.17, 920.744 )
+
+[node name="spike" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 751.949, 920.833 )
+
+[node name="spike15" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 7281.45, 921.399 )
+
+[node name="spike17" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 7560.34, 442.253 )
+rotation = -1.57079
+
+[node name="spike18" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 7530.45, -521.425 )
+rotation = -3.14159
+
+[node name="spike19" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 7567.53, -678.643 )
+
+[node name="spike20" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 7505.12, -678.924 )
+
+[node name="spike21" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 7473.14, -678.983 )
+
+[node name="spike22" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 7806.19, -518.875 )
+
+[node name="spike23" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 7743.78, -519.155 )
+
+[node name="spike24" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 7711.8, -519.214 )
+
+[node name="spike25" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 7963.76, -519.469 )
+
+[node name="spike26" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 7901.35, -519.75 )
+
+[node name="spike27" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 7869.37, -519.809 )
+
+[node name="spike28" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 8122.52, -519.469 )
+
+[node name="spike31" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 8185.55, -520.064 )
+
+[node name="spike29" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 8060.1, -519.75 )
+
+[node name="spike30" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 8028.13, -519.809 )
+
+[node name="spike32" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 9135.72, 841.703 )
+
+[node name="spike33" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 9198.79, 841.703 )
+
+[node name="spike34" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 9261.86, 841.703 )
+
+[node name="spike35" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 9325.76, 841.282 )
+
+[node name="spike36" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 9387.99, 841.282 )
+
+[node name="spike37" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 9451.48, 841.282 )
+
+[node name="spike38" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 9514.55, 840.862 )
+
+[node name="spike39" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 9578.04, 840.862 )
+
+[node name="spike40" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 9640.68, 841.282 )
+
+[node name="spike41" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 9704.59, 840.862 )
+
+[node name="spike42" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 9767.24, 841.282 )
+
+[node name="spike43" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 9829.46, 841.703 )
+
+[node name="spike44" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 9892.53, 841.703 )
+
+[node name="spike45" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 9955.6, 841.703 )
+
+[node name="spike46" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 7533.31, 921.021 )
+
+[node name="spike47" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 7596.37, 921.021 )
+
+[node name="spike48" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 7659.44, 921.021 )
+
+[node name="spike49" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 7723.35, 920.6 )
+
+[node name="spike50" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 7785.58, 920.6 )
+
+[node name="spike51" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 7849.07, 920.6 )
+
+[node name="spike52" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 7912.14, 920.18 )
+
+[node name="spike53" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 7975.62, 920.18 )
+
+[node name="spike54" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 8038.27, 920.6 )
+
+[node name="spike55" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 8102.18, 920.18 )
+
+[node name="spike56" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 8164.82, 920.6 )
+
+[node name="spike57" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 8227.05, 921.021 )
+
+[node name="spike58" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 8290.12, 921.021 )
+
+[node name="spike59" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 8353.19, 921.021 )
+
+[node name="spike60" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 8479.46, 920.924 )
+
+[node name="spike61" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 8542.53, 920.924 )
+
+[node name="spike62" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 8605.6, 920.924 )
+
+[node name="spike63" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 8669.51, 920.503 )
+
+[node name="spike64" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 8731.73, 920.503 )
+
+[node name="spike65" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 8795.22, 920.503 )
+
+[node name="spike66" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 8858.29, 920.083 )
+
+[node name="spike67" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 8921.78, 920.083 )
+
+[node name="spike68" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 8984.42, 920.503 )
+
+[node name="spike69" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 10093.6, 920.64 )
+
+[node name="spike70" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 10156.6, 920.64 )
+
+[node name="spike71" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 10219.7, 920.64 )
+
+[node name="spike72" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 10283.6, 920.219 )
+
+[node name="spike73" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 10345.8, 920.219 )
+
+[node name="spike74" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 10409.3, 920.219 )
+
+[node name="spike75" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 10472.4, 919.799 )
+
+[node name="spike76" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 10535.9, 919.799 )
+
+[node name="spike77" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 10598.5, 920.219 )
+
+[node name="spike78" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 10662.4, 919.799 )
+
+[node name="spike79" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 10725.1, 920.219 )
+
+[node name="spike80" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 10787.3, 920.64 )
+
+[node name="spike81" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 10850.4, 920.64 )
+
+[node name="spike82" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 10913.4, 920.64 )
+
+[node name="spike83" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 11039.7, 920.543 )
+
+[node name="spike84" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 11102.8, 920.543 )
+
+[node name="spike85" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 11165.9, 920.543 )
+
+[node name="spike86" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 11229.8, 920.122 )
+
+[node name="spike87" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 11292, 920.122 )
+
+[node name="spike88" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 12974.7, 922.05 )
+
+[node name="spike89" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 13037.8, 922.05 )
+
+[node name="spike90" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 13100.8, 922.05 )
+
+[node name="spike91" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 13164.7, 921.629 )
+
+[node name="spike92" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 13227, 921.629 )
+
+[node name="spike93" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 13290.5, 921.629 )
+
+[node name="spike94" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 13353.5, 921.209 )
+
+[node name="spike95" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 13417, 921.209 )
+
+[node name="spike96" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 13479.7, 921.629 )
+
+[node name="spike97" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 13543.6, 921.209 )
+
+[node name="spike98" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 13606.2, 921.629 )
+
+[node name="spike99" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 13668.4, 922.05 )
+
+[node name="spike100" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 13731.5, 922.05 )
+
+[node name="spike101" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 13794.6, 922.05 )
+
+[node name="spike102" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 13920.9, 921.953 )
+
+[node name="spike103" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 13983.9, 921.953 )
+
+[node name="spike104" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 14047, 921.953 )
+
+[node name="spike105" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 14110.9, 921.532 )
+
+[node name="spike106" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 14173.1, 921.532 )
+
+[node name="spike107" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 14236.6, 921.532 )
+
+[node name="spike108" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 14299.7, 921.112 )
+
+[node name="spike109" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 14363.2, 921.112 )
+
+[node name="spike110" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 14425.8, 921.532 )
+
+[node name="spike111" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 14551.5, 922.05 )
+
+[node name="spike112" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 14614.6, 922.05 )
+
+[node name="spike113" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 14677.7, 922.05 )
+
+[node name="spike114" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 14741.6, 921.629 )
+
+[node name="spike115" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 14803.8, 921.629 )
+
+[node name="spike116" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 14867.3, 921.629 )
+
+[node name="spike117" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 14930.4, 921.209 )
+
+[node name="spike118" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 14993.9, 921.209 )
+
+[node name="spike119" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 15056.5, 921.629 )
+
+[node name="spike120" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 15120.4, 921.209 )
+
+[node name="spike121" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 15183.1, 921.629 )
+
+[node name="spike122" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 15245.3, 922.05 )
+
+[node name="spike123" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 15308.4, 922.05 )
+
+[node name="spike124" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 15371.4, 922.05 )
+
+[node name="spike125" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 15497.7, 921.953 )
+
+[node name="spike126" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 15560.8, 921.953 )
+
+[node name="spike127" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 15623.8, 921.953 )
+
+[node name="spike128" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 15687.7, 921.532 )
+
+[node name="spike129" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 15750, 921.532 )
+
+[node name="spike130" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 15813.5, 921.532 )
+
+[node name="spike131" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 15876.5, 921.112 )
+
+[node name="spike132" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 15940, 921.112 )
+
+[node name="spike133" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 16002.7, 921.532 )
+
+[node name="spike134" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 16126.3, 921.342 )
+
+[node name="spike135" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 16189.3, 921.342 )
+
+[node name="spike136" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 16252.4, 921.342 )
+
+[node name="spike137" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 16316.3, 920.922 )
+
+[node name="spike138" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 16378.5, 920.922 )
+
+[node name="spike139" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 16442, 920.922 )
+
+[node name="spike140" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 16505.1, 920.502 )
+
+[node name="spike141" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 16568.6, 920.502 )
+
+[node name="spike142" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 16631.2, 920.922 )
+
+[node name="spike143" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 16695.1, 920.502 )
+
+[node name="spike144" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 16757.8, 920.922 )
+
+[node name="spike145" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 16820, 921.342 )
+
+[node name="spike146" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 16883.1, 921.342 )
+
+[node name="spike147" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 16946.2, 921.342 )
+
+[node name="spike148" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 17072.4, 921.245 )
+
+[node name="spike149" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 17143.4, 841.806 )
+
+[node name="spike150" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 17206.5, 841.806 )
+
+[node name="spike151" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 17270.4, 841.385 )
+
+[node name="spike152" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 17332.6, 841.385 )
+
+[node name="spike153" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 17396.1, 841.385 )
+
+[node name="spike154" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 17459.2, 840.965 )
+
+[node name="spike155" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 17522.6, 840.965 )
+
+[node name="spike156" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 17585.3, 841.385 )
+
+[node name="spike157" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 17649.2, 841.088 )
+
+[node name="spike158" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 17703.5, 920.528 )
+
+[node name="spike159" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 17767, 920.528 )
+
+[node name="spike160" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 17830.1, 920.108 )
+
+[node name="spike161" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 17893.6, 920.108 )
+
+[node name="spike162" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 17956.2, 920.528 )
+
+[node name="spike163" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 18079.8, 920.338 )
+
+[node name="spike164" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 18142.9, 920.338 )
+
+[node name="spike165" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 18206, 920.338 )
+
+[node name="spike166" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 18269.9, 919.918 )
+
+[node name="spike167" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 18332.1, 919.918 )
+
+[node name="spike168" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 18395.6, 919.918 )
+
+[node name="spike169" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 18458.7, 919.497 )
+
+[node name="spike170" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 18522.2, 919.497 )
+
+[node name="spike171" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 18584.8, 919.918 )
+
+[node name="spike172" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 18648.7, 919.497 )
+
+[node name="spike173" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 18711.4, 919.918 )
+
+[node name="spike174" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 18773.6, 920.338 )
+
+[node name="spike175" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 18836.7, 920.338 )
+
+[node name="spike176" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 18899.7, 920.338 )
+
+[node name="spike177" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 19026, 920.241 )
+
+[node name="spike178" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 19089.1, 920.241 )
+
+[node name="spike179" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 19152.1, 920.241 )
+
+[node name="spike180" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 19216, 919.821 )
+
+[node name="spike181" parent="spike/spike37" instance=ExtResource( 2 )]
+position = Vector2( 19248.3, 921.319 )
+
+[node name="spike2" parent="spike" instance=ExtResource( 2 )]
+position = Vector2( 813.056, 920.833 )
+
+[node name="spike3" parent="spike" instance=ExtResource( 2 )]
+position = Vector2( 876.052, 921.148 )
+
+[node name="spike4" parent="spike" instance=ExtResource( 2 )]
+position = Vector2( 939.363, 921.148 )
+
+[node name="spike5" parent="spike" instance=ExtResource( 2 )]
+position = Vector2( 1002.36, 921.148 )
+
+[node name="spike6" parent="spike" instance=ExtResource( 2 )]
+position = Vector2( 1065.04, 920.833 )
+
+[node name="spike7" parent="spike" instance=ExtResource( 2 )]
+position = Vector2( 1127.72, 921.148 )
+
+[node name="spike8" parent="spike" instance=ExtResource( 2 )]
+position = Vector2( 1190.72, 920.833 )
+
+[node name="spike9" parent="spike" instance=ExtResource( 2 )]
+position = Vector2( 1253.08, 920.833 )
+
+[node name="spike10" parent="spike" instance=ExtResource( 2 )]
+position = Vector2( 1315.13, 920.833 )
+
+[node name="spike11" parent="spike" instance=ExtResource( 2 )]
+position = Vector2( 1377.19, 920.833 )
+
+[node name="spike12" parent="spike" instance=ExtResource( 2 )]
+position = Vector2( 1440.5, 920.833 )
+
+[node name="spike13" parent="spike" instance=ExtResource( 2 )]
+position = Vector2( 1503.49, 920.833 )
+
+[node name="spike14" parent="spike" instance=ExtResource( 2 )]
+position = Vector2( 1566.17, 920.744 )
+
+[node name="spike" parent="spike" instance=ExtResource( 2 )]
+position = Vector2( 751.949, 920.833 )
+
+[node name="spike15" parent="spike" instance=ExtResource( 2 )]
+position = Vector2( 7281.45, 921.399 )
+
+[node name="spike17" parent="spike" instance=ExtResource( 2 )]
+position = Vector2( 7560.34, 442.253 )
+rotation = -1.57079
+
+[node name="spike18" parent="spike" instance=ExtResource( 2 )]
+position = Vector2( 7530.45, -521.425 )
+rotation = -3.14159
+
+[node name="spike19" parent="spike" instance=ExtResource( 2 )]
+position = Vector2( 7567.53, -678.643 )
+
+[node name="spike20" parent="spike" instance=ExtResource( 2 )]
+position = Vector2( 7505.12, -678.924 )
+
+[node name="spike21" parent="spike" instance=ExtResource( 2 )]
+position = Vector2( 7473.14, -678.983 )
+
+[node name="spike22" parent="spike" instance=ExtResource( 2 )]
+position = Vector2( 7806.19, -518.875 )
+
+[node name="spike23" parent="spike" instance=ExtResource( 2 )]
+position = Vector2( 7743.78, -519.155 )
+
+[node name="spike24" parent="spike" instance=ExtResource( 2 )]
+position = Vector2( 7711.8, -519.214 )
+
+[node name="spike25" parent="spike" instance=ExtResource( 2 )]
+position = Vector2( 7963.76, -519.469 )
+
+[node name="spike26" parent="spike" instance=ExtResource( 2 )]
+position = Vector2( 7901.35, -519.75 )
+
+[node name="spike27" parent="spike" instance=ExtResource( 2 )]
+position = Vector2( 7869.37, -519.809 )
+
+[node name="spike28" parent="spike" instance=ExtResource( 2 )]
+position = Vector2( 8122.52, -519.469 )
+
+[node name="spike31" parent="spike" instance=ExtResource( 2 )]
+position = Vector2( 8185.55, -520.064 )
+
+[node name="spike29" parent="spike" instance=ExtResource( 2 )]
+position = Vector2( 8060.1, -519.75 )
+
+[node name="spike30" parent="spike" instance=ExtResource( 2 )]
+position = Vector2( 8028.13, -519.809 )
+
+[node name="spike32" parent="spike" instance=ExtResource( 2 )]
+position = Vector2( 9073.07, 841.703 )
+
+[node name="spike33" parent="spike" instance=ExtResource( 2 )]
+position = Vector2( 7470.66, 921.021 )
+
+[node name="spike34" parent="spike" instance=ExtResource( 2 )]
+position = Vector2( 8416.81, 920.924 )
+
+[node name="spike35" parent="spike" instance=ExtResource( 2 )]
+position = Vector2( 10030.9, 920.64 )
+
+[node name="spike36" parent="spike" instance=ExtResource( 2 )]
+position = Vector2( 10977.1, 920.543 )
+
+[node name="spike38" parent="spike" instance=ExtResource( 2 )]
+position = Vector2( 12912.1, 922.05 )
+
+[node name="spike39" parent="spike" instance=ExtResource( 2 )]
+position = Vector2( 13858.2, 921.953 )
+
+[node name="spike40" parent="spike" instance=ExtResource( 2 )]
+position = Vector2( 14488.9, 922.05 )
+
+[node name="spike41" parent="spike" instance=ExtResource( 2 )]
+position = Vector2( 15435.1, 921.953 )
+
+[node name="spike42" parent="spike" instance=ExtResource( 2 )]
+position = Vector2( 16063.6, 921.342 )
+
+[node name="spike43" parent="spike" instance=ExtResource( 2 )]
+position = Vector2( 17009.8, 921.245 )
+
+[node name="spike44" parent="spike" instance=ExtResource( 2 )]
+position = Vector2( 18017.2, 920.338 )
+
+[node name="spike45" parent="spike" instance=ExtResource( 2 )]
+position = Vector2( 18963.3, 920.241 )
+
+[node name="spike46" parent="spike" instance=ExtResource( 2 )]
+position = Vector2( 16980.5, -847.529 )
+rotation = 1.13337
+
+[node name="spike47" parent="spike" instance=ExtResource( 2 )]
+position = Vector2( 16950.9, -906.115 )
+rotation = 1.13337
+
+[node name="invBumpers" type="Node2D" parent="."]
+
+[node name="Bumper" parent="invBumpers" instance=ExtResource( 11 )]
+position = Vector2( 7515.39, 538.145 )
+
+[node name="Bumper2" parent="invBumpers" instance=ExtResource( 11 )]
+position = Vector2( 7518.39, 341.866 )
+
+[node name="Bumper3" parent="invBumpers" instance=ExtResource( 11 )]
+position = Vector2( 7516.89, 153.08 )
+
+[node name="Bumper4" parent="invBumpers" instance=ExtResource( 11 )]
+position = Vector2( 7510.9, -23.7207 )
+
+[node name="Bumper5" parent="invBumpers" instance=ExtResource( 11 )]
+position = Vector2( 7518.39, -166.06 )
+
+[node name="Bumper6" parent="invBumpers" instance=ExtResource( 11 )]
+position = Vector2( 12722.5, 793.198 )
+
+[node name="Bumper7" parent="invBumpers" instance=ExtResource( 11 )]
+position = Vector2( 12721, 604.411 )
+
+[node name="Bumper8" parent="invBumpers" instance=ExtResource( 11 )]
+position = Vector2( 12715, 427.611 )
+
+[node name="Bumper9" parent="invBumpers" instance=ExtResource( 11 )]
+position = Vector2( 12722.5, 285.271 )
+
+[node name="Bumper10" parent="invBumpers" instance=ExtResource( 11 )]
+position = Vector2( 12724.9, 1017.29 )
+
+[node name="Bumper11" parent="invBumpers" instance=ExtResource( 11 )]
+position = Vector2( 12704.7, 44.8427 )
+
+[node name="Bumper12" parent="invBumpers" instance=ExtResource( 11 )]
+position = Vector2( 12703.2, -143.944 )
+
+[node name="Bumper13" parent="invBumpers" instance=ExtResource( 11 )]
+position = Vector2( 12697.2, -320.744 )
+
+[node name="Bumper14" parent="invBumpers" instance=ExtResource( 11 )]
+position = Vector2( 12704.7, -463.083 )
+
+[node name="Bumper15" parent="invBumpers" instance=ExtResource( 11 )]
+position = Vector2( 12715.3, -657.185 )
+
+[node name="Bumper16" parent="invBumpers" instance=ExtResource( 11 )]
+position = Vector2( 12713.8, -845.972 )
+
+[node name="Bumper17" parent="invBumpers" instance=ExtResource( 11 )]
+position = Vector2( 12707.8, -1022.77 )
+
+[node name="Bumper18" parent="invBumpers" instance=ExtResource( 11 )]
+position = Vector2( 12715.3, -1165.11 )
+
+[node name="Platformes" type="Node2D" parent="."]
+
+[node name="MovingPlatform" parent="Platformes" instance=ExtResource( 12 )]
+position = Vector2( 9384.62, 440.149 )
+move_to = Vector2( 0, 500 )
+
+[node name="MovingPlatform2" parent="Platformes" instance=ExtResource( 12 )]
+position = Vector2( 17283.9, -840.221 )
+move_to = Vector2( 0, 1800 )
+
+[editable path="InterfaceLayer/UserInterface"]
+
+[editable path="Player"]

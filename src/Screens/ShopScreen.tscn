@@ -1,0 +1,179 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://assets/ui_theme.tres" type="Theme" id=1]
+[ext_resource path="res://assets/background1.png" type="Texture" id=2]
+[ext_resource path="res://src/UserInterface/Title.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/montserrat_extrabold.otf" type="DynamicFontData" id=4]
+[ext_resource path="res://src/UserInterface/SceneChangeButton.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/Screens/buy-speed-boost.gd" type="Script" id=6]
+[ext_resource path="res://src/scripts/coin-counter.gd" type="Script" id=7]
+[ext_resource path="res://src/Screens/NoScreen.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/scripts/Label.gd" type="Script" id=9]
+[ext_resource path="res://src/Screens/NoScreenLock.tscn" type="PackedScene" id=10]
+[ext_resource path="res://assets/font_title.tres" type="DynamicFont" id=11]
+
+[sub_resource type="DynamicFont" id=3]
+size = 100
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=1]
+size = 100
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 100
+font_data = ExtResource( 4 )
+
+[node name="MainScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+margin_right = 3635.0
+margin_bottom = 1846.0
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control2" type="Control" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -20.0
+margin_right = 20.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" parent="Control2" instance=ExtResource( 3 )]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -257.0
+margin_right = 257.0
+margin_bottom = 170.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Shop"
+
+[node name="Control3" type="Control" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Control3"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -359.0
+margin_top = 129.0
+margin_bottom = 258.0
+custom_fonts/font = SubResource( 3 )
+text = "0"
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="Control3"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -359.0
+margin_bottom = 129.0
+custom_fonts/font = SubResource( 3 )
+text = "coins:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control4" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -20.0
+margin_right = 20.0
+margin_bottom = 20.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Result" type="Label" parent="Control4"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -683.5
+margin_top = 47.5
+margin_right = 683.5
+margin_bottom = 170.5
+custom_fonts/font = SubResource( 1 )
+text = "Low gravity Modes: %s"
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="Control4"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -223.085
+margin_top = 210.5
+margin_right = 981.915
+margin_bottom = 450.5
+custom_fonts/font = ExtResource( 11 )
+text = "Costs: 10000"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="meme" type="Button" parent="Control4"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -683.5
+margin_top = -67.5
+margin_right = 683.5
+margin_bottom = 67.5
+size_flags_horizontal = 13
+size_flags_vertical = 13
+custom_fonts/font = SubResource( 2 )
+text = "Buy 1 Low gravity Mode"
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+next_scene = ExtResource( 10 )
+next_scene2 = ExtResource( 8 )
+
+[node name="Control5" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SceneChangeButton" parent="Control5" instance=ExtResource( 5 )]
+margin_right = 349.0
+margin_bottom = 145.0
+text = "Back To Main Menu"
+next_scene_path = "res://src/Screens/MainScreen.tscn"
+[connection signal="pressed" from="Control4/meme" to="Control4/meme" method="_on_meme_pressed"]

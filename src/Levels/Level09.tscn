@@ -1,0 +1,98 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://src/UserInterface/UserInterface.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Actors/Boss.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/Objects/moving platform y.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Actors/Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Actors/Enemy.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/Objects/HP.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/backgroung.png" type="Texture" id=7]
+[ext_resource path="res://assets/tileset.tres" type="TileSet" id=8]
+[ext_resource path="res://src/Objects/Bumper.tscn" type="PackedScene" id=9]
+[ext_resource path="res://src/Objects/HPBOSSFITE.gd" type="Script" id=13]
+
+[node name="Level09" type="Node2D"]
+
+[node name="BackgroundLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="TextureRect" type="TextureRect" parent="BackgroundLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 0.840881
+margin_right = 0.84082
+texture = ExtResource( 7 )
+expand = true
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InterfaceLayer" type="CanvasLayer" parent="."]
+
+[node name="UserInterface" parent="InterfaceLayer" instance=ExtResource( 1 )]
+Load_scene_path = "res://src/Levels/Level09.tscn"
+is_boss_fite = true
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 8 )
+cell_size = Vector2( 80, 80 )
+collision_layer = 4
+collision_mask = 0
+format = 1
+tile_data = PoolIntArray( -196609, -1610612736, 0, -262144, -1610612736, 0, -262143, -1610612736, 0, -262142, -1610612736, 0, -262141, -1610612736, 0, -262140, -1610612736, 0, -262139, -1610612736, 0, -262138, -1610612736, 0, -262137, -1610612736, 0, -262136, -1610612736, 0, -262135, -1610612736, 0, -262134, -1610612736, 0, -262133, -1610612736, 0, -262132, -1610612736, 0, -262131, -1610612736, 0, -262130, -1610612736, 0, -262129, -1610612736, 0, -262128, -1610612736, 0, -262127, -1610612736, 0, -262126, -1610612736, 0, -262125, -1610612736, 0, -262124, -1610612736, 0, -262123, -1610612736, 0, -262122, -1610612736, 0, -262121, -1610612736, 0, -262120, -1610612736, 0, -262119, -1610612736, 0, -262118, -1610612736, 0, -262117, -1610612736, 0, -262116, -1610612736, 0, -262115, -1610612736, 0, -262114, -1610612736, 0, -262113, -1610612736, 0, -131073, -1610612736, 0, -196577, -1610612736, 0, -65537, -1610612736, 0, -131041, -1610612736, 0, -1, -1610612736, 0, -65505, -1610612736, 0, 65535, 0, 0, 28, 1, 0, 29, 1, 0, 30, 1, 0, 31, -1610612736, 0, 131071, 0, 0, 65559, 1, 0, 65560, 1, 0, 65567, -1610612736, 0, 196607, 0, 0, 131087, 1, 0, 131088, 1, 0, 131091, 1, 0, 131092, 1, 0, 131103, -1610612736, 0, 262143, 0, 0, 196620, 0, 0, 196621, 0, 0, 196639, -1610612736, 0, 327679, 0, 0, 262175, -1610612736, 0, 393215, 0, 0, 327687, 1, 0, 327688, 1, 0, 327711, -1610612736, 0, 458751, 0, 0, 393216, 1, 0, 393217, 1, 0, 393218, 1, 0, 393219, 1, 0, 393220, 1, 0, 393247, -1610612736, 0, 524287, 0, 0, 458752, 0, 0, 458753, 1, 0, 458754, 1, 0, 458755, 0, 0, 458756, 0, 0, 458783, -1610612736, 0, 589823, 0, 0, 524288, 0, 0, 524289, 1, 0, 524290, 1, 0, 524291, 0, 0, 524292, 0, 0, 524319, -1610612736, 0, 655359, 0, 0, 589824, 0, 0, 589825, 1, 0, 589826, 1, 0, 589827, 1, 0, 589828, 1, 0, 589855, -1610612736, 0, 720895, 0, 0, 655360, 0, 0, 655361, 1, 0, 655362, 1, 0, 655363, 1, 0, 655364, 1, 0, 655391, -1610612736, 0, 786431, 0, 0, 720896, 0, 0, 720897, 0, 0, 720898, 0, 0, 720899, 0, 0, 720900, 0, 0, 720927, -1610612736, 0, 851967, 0, 0, 786432, 0, 0, 786433, 0, 0, 786434, 0, 0, 786435, 0, 0, 786436, 0, 0, 786437, 0, 0, 786438, 0, 0, 786439, 0, 0, 786440, 0, 0, 786441, 0, 0, 786442, 0, 0, 786443, 0, 0, 786444, 0, 0, 786445, 0, 0, 786446, 0, 0, 786447, 0, 0, 786448, 0, 0, 786449, 0, 0, 786450, 0, 0, 786451, 0, 0, 786452, 0, 0, 786453, 0, 0, 786454, 0, 0, 786455, 0, 0, 786456, 0, 0, 786457, 0, 0, 786458, 0, 0, 786459, 0, 0, 786460, 0, 0, 786461, 0, 0, 786462, 0, 0, 786463, -1610612736, 0, 917503, 0, 0, 851968, 0, 0, 851969, 0, 0, 851970, 0, 0, 851971, 0, 0, 851972, 0, 0, 851973, 0, 0, 851974, 0, 0, 851975, 0, 0, 851976, 0, 0, 851977, 0, 0, 851978, 0, 0, 851979, 0, 0, 851980, 0, 0, 851981, 0, 0, 851982, 0, 0, 851983, 0, 0, 851984, 0, 0, 851985, 0, 0, 851986, 0, 0, 851987, 0, 0, 851988, 0, 0, 851989, 0, 0, 851990, 0, 0, 851991, 0, 0, 851992, 0, 0, 851993, 0, 0, 851994, 0, 0, 851995, 0, 0, 851996, 0, 0, 851997, 0, 0, 851998, 0, 0, 851999, -1610612736, 0 )
+
+[node name="Player" parent="." instance=ExtResource( 4 )]
+position = Vector2( 102.579, 218.371 )
+joystickLeftPath = NodePath("../InterfaceLayer/UserInterface/Joystick")
+
+[node name="Camera2D" parent="Player" index="0"]
+limit_right = 2500
+
+[node name="Boss" parent="." instance=ExtResource( 2 )]
+position = Vector2( 2019.95, 621.042 )
+
+[node name="coins" type="Node2D" parent="."]
+
+[node name="Enemys" type="Node2D" parent="."]
+
+[node name="Enemy" parent="Enemys" instance=ExtResource( 5 )]
+position = Vector2( 539.426, 948.71 )
+speed = Vector2( 650, 500 )
+
+[node name="Enemy2" parent="Enemys" instance=ExtResource( 5 )]
+position = Vector2( 959.93, 939.801 )
+speed = Vector2( 650, 500 )
+
+[node name="Enemy3" parent="Enemys" instance=ExtResource( 5 )]
+position = Vector2( 1423.2, 939.801 )
+speed = Vector2( 650, 500 )
+
+[node name="Enemy4" parent="Enemys" instance=ExtResource( 5 )]
+position = Vector2( 1838.36, 941.583 )
+speed = Vector2( 650, 500 )
+
+[node name="Enemy5" parent="Enemys" instance=ExtResource( 5 )]
+position = Vector2( 2255.3, 929.111 )
+speed = Vector2( 650, 500 )
+
+[node name="HPs" type="Node2D" parent="."]
+
+[node name="HP" parent="HPs" instance=ExtResource( 6 )]
+position = Vector2( 147.74, 417.73 )
+script = ExtResource( 13 )
+
+[node name="Bumpers" type="Node2D" parent="."]
+
+[node name="Bumper" parent="Bumpers" instance=ExtResource( 9 )]
+position = Vector2( 765.319, 960.713 )
+
+[node name="Platforms" type="Node2D" parent="."]
+
+[node name="MovingPlatform" parent="Platforms" instance=ExtResource( 3 )]
+position = Vector2( 2115.17, -99.7771 )
+move_to = Vector2( 0, 600 )
+
+[editable path="InterfaceLayer/UserInterface"]
+
+[editable path="Player"]
