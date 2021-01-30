@@ -32,27 +32,27 @@ var credits = [
 	],[
 		"Programming:",
 		"",
-		"Alon-Arvatz",
+		"ChromiumOS-Guy",
 		"",
 		"Find me on github.com",
 		"",
-		"https://github.com/alonarvatz"
+		"https://github.com/ChromiumOS-Guy"
 	],[
 		"Art:",
 		"",
-		"Alon-Arvatz"
+		"ChromiumOS-Guy"
 	],[
 		"Music:",
 		"",
-		"Alon-Arvatz"
+		"ChromiumOS-Guy"
 	],[
 		"Sound Effects:",
 		"",
-		"Alon-Arvatz"
+		"ChromiumOS-Guy"
 	],[
 		"Testers:",
 		"",
-		"Alon-Arvatz"
+		"ChromiumOS-Guy"
 	],[
 		"Tools used:",
 		"",
@@ -64,12 +64,6 @@ var credits = [
 		"Art created with pixlr E",
 		"",
 		"https://pixlr.com/e/"
-	],[
-		"Special thanks",
-		"",
-		"My friends",
-		"",
-		"And Family"
 	]
 ]
 
