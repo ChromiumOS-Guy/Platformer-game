@@ -16,6 +16,7 @@ func _on_body_entered(body: PhysicsBody2D) -> void:
 
 
 func picked() -> void:
+	sound_coin.volume_db = Database2.Sound
 	PlayerData.score += score
 	Database2.coinfound = true
 	Database2.pickedistrue = true
