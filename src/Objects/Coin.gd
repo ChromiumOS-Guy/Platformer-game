@@ -10,13 +10,15 @@ var x = 0
 export var score: = 100
 
 
+func ready():
+	sound_coin.volume_db = Database2.Sound
+
 func _on_body_entered(body: PhysicsBody2D) -> void:
 	if body.is_in_group("Player"):
 		picked()
 
 
 func picked() -> void:
-	sound_coin.volume_db = Database2.Sound
 	PlayerData.score += score
 	Database2.coinfound = true
 	Database2.pickedistrue = true
