@@ -4,7 +4,7 @@ my first platformer game MIT license so do what you want with it it's free to us
 
 this game is my journey learning Godot game engine 3.2.3
 
-this game represents my path to success with godot im not going to change it or fix more bugs
+this game represents my path to success with the godot im not going to change it or fix more bugs
 
 Because it's my first game the code is not organized
 
