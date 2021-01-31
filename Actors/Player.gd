@@ -116,15 +116,15 @@ func _physics_process(delta: float) -> void:
 	if Database2.Main == true:
 		Database2.Main = false
 		Database2.Sound = Database2.soundonplayer
-		coinplayer.volume_db = Database2.Sound
-		AudioStreamPlayerJump.volume_db = Database2.Sound
-		AudioStreamPlayerhp.volume_db = Database2.Sound
 		get_tree().change_scene("res://src/Screens/MainScreen.tscn")
 	if Database2.pickedistrue:
 		Database2.pickedistrue = false
 		if coinfinshid:
 			coinplayer.play()
 			coinfinshid = false
+	coinplayer.volume_db = Database2.Sound
+	AudioStreamPlayerJump.volume_db = Database2.Sound
+	AudioStreamPlayerhp.volume_db = Database2.Sound
 	
 
 #Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
