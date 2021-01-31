@@ -8,9 +8,9 @@ this game represents my path to success with the godot im not going to change it
 
 Because it's my first game the code is not organized
 
-and learned to use godot features like signals in between
+and I learned to use godot features like signals and how to save a database in between me writing the code and finishing writing it
 
-and how to save a database so my code is not a work of art
+so my code is not a work of art
 
 it was nice to make the game but im Sure that making a new Platformer will be my best shot at this but i do know codeing in c, c++, python, GD script, and some c##
 
