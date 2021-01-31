@@ -63,8 +63,15 @@ var credits = [
 		"Art created with pixlr E",
 		"",
 		"https://pixlr.com/e/"
+	],[
+		"Special thanks",
+		"",
+		"Gdquest: https://youtube.com/c/Gdquest",
+		"",
+		"Game endeavor: https://youtube.com/c/GameEndeavor"
 	]
 ]
+
 
 
 func _process(delta):
