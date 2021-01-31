@@ -15,6 +15,7 @@ onready var game_music = $mainmenumusic
 onready var Game_over_sound = $gameover
 onready var lives_sound = $onelive
 onready var mutedsign = $Control2/PauseOverlay/VBoxContainer/VSlider/Label
+onready var slide = $Control2/PauseOverlay/VBoxContainer/VSlider
 onready var Enemy_die = $Enemydie
 onready var Health_bar = $HealthBar
 onready var buutonthings = $button/'1'
@@ -38,6 +39,7 @@ func _ready() -> void:
 	lives_sound.volume_db = Database2.Sound
 	Game_over_sound.volume_db = Database2.Sound
 	game_music.volume_db = Database2.Sound
+	slide.value = Database2.Sound
 	if Database2.playerhp > 0:
 		Health_bar._on_health_updated()
 		game_music.play()
