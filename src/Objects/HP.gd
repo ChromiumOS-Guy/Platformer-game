@@ -16,7 +16,6 @@ func _on_HP_body_entered(body: PhysicsBody2D) -> void:
 
 
 func picked() -> void:
-	HP_sound.volume_db = Database2.Sound
 	if Database2.playerhp == 4:
 		print("players HP is full")
 	elif Database2.playerhp < 4:
