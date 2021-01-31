@@ -75,35 +75,42 @@ __meta__ = {
 
 [node name="PlayButton" parent="Control/Menu" instance=ExtResource( 4 )]
 margin_right = 488.0
-margin_bottom = 137.0
+margin_bottom = 113.0
 text = "Play"
 script = ExtResource( 9 )
 
 [node name="ShopButton" type="Button" parent="Control/Menu"]
-margin_top = 145.0
+margin_top = 121.0
 margin_right = 488.0
-margin_bottom = 282.0
+margin_bottom = 234.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Shop"
 script = ExtResource( 6 )
 
 [node name="CreditsButton" parent="Control/Menu" instance=ExtResource( 4 )]
-margin_top = 290.0
+margin_top = 242.0
 margin_right = 488.0
-margin_bottom = 428.0
+margin_bottom = 355.0
 text = "Credits"
 next_scene_path = "res://src/Screens/GodotCredits.tscn"
 
-[node name="Waypoints" parent="Control/Menu" instance=ExtResource( 4 )]
-margin_top = 436.0
+[node name="SceneChangeButton" parent="Control/Menu" instance=ExtResource( 4 )]
+margin_top = 363.0
 margin_right = 488.0
-margin_bottom = 573.0
+margin_bottom = 476.0
+text = "About this game"
+next_scene_path = "res://src/Screens/info/info.tscn"
+
+[node name="Waypoints" parent="Control/Menu" instance=ExtResource( 4 )]
+margin_top = 484.0
+margin_right = 488.0
+margin_bottom = 597.0
 text = "Waypoints"
 next_scene_path = "res://src/Screens/Waypoints.tscn"
 
 [node name="QuitButton2" type="Button" parent="Control/Menu"]
-margin_top = 581.0
+margin_top = 605.0
 margin_right = 488.0
 margin_bottom = 719.0
 size_flags_horizontal = 15
