@@ -11,6 +11,7 @@ onready var HP_sound: AudioStreamPlayer = $HPpicked
 func ready():
 	HP_sound.volume_db = Database2.Sound
 func _on_HP_body_entered(body: PhysicsBody2D) -> void:
+	HP_sound.volume_db = Database2.Sound
 	if body.is_in_group("Player"):
 		picked()
 
