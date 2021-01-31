@@ -22,6 +22,7 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	bossout.volume_db = Database2.Sound
 	#print("Platform Collided with: ", collision.collider.name)
 	_velocity.x *= -1 if is_on_wall() else 1
 	_velocity.y = move_and_slide(_velocity, FLOOR_NORMAL).y
