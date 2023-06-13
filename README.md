@@ -18,9 +18,9 @@ but i think unity has more stuff for 3d i made a game in 3d with a inventroy and
 
 but this game aka Justruner is now officially discontinued
 
-you can donate using this link:
 
-https://www.paypal.com/donate?hosted_button_id=C2P7CADJFMRGC
+
+
 
 Was created using the help of:
 
